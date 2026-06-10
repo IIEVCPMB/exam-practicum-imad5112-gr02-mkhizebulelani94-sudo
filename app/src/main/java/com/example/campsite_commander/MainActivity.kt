@@ -44,15 +44,14 @@ class MainActivity : ComponentActivity() {
 
     private val categories = arrayOf("Shelter", "Food", "Safety", "")
 
-    private val quantities = arrayOf("1", "3", "2", "")
-
     private val comments = arrayOf("4-person waterproof", "For S'mores (Mega Size)", "Check Batteries", "")
 
 
-    private var feedbackList = mutableListOf<String>()
-    private var requirements = 4
-    private var quantityStart = 6
-    private var total = Array(6) { "" }
+    private val feedbackList = mutableListOf<String>()
+    private val requirements = 4
+    private val quantityStart = 6
+    private val quantities = Array(6) { "" }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,7 +92,8 @@ class MainActivity : ComponentActivity() {
 
         //the functions of the buttons below
         startButton.setOnClickListener {
-            feedbackList.clear()
+            splashLayout.visibility = View.GONE
+            mainLayout.visibility = View.VISIBLE
         }
         exitSplashButton.setOnClickListener {
             finish()
@@ -115,6 +115,7 @@ class MainActivity : ComponentActivity() {
                 editQuantity.text.clear()
                 editCategory.text.clear()
                 editItem.text.clear()
+                editComments.text.clear()
 
             }
         }
@@ -122,10 +123,6 @@ class MainActivity : ComponentActivity() {
         btnTotal.setOnClickListener {
 
             var total = 0
-
-            for (i in quantities.indices) {
-                total += quantities[i]
-            }
 
             val sum = total + quantities.size
 
@@ -152,13 +149,12 @@ class MainActivity : ComponentActivity() {
         //next button
         btnClear.setOnClickListener {
 
-            for (i in items.indices) {
-                editItem[i] = ""
-                editQuantity[i] = 0
-                editCategory[i] = ""
+            for (i in categories.indices){
                 editComments[i] = ""
+                editItem[i] = ""
+                editCategory[i] = ""
+                editQuantity[i] = 0
             }
-
             txtDetails.text = "Response"
 
             Toast.makeText(this, "Data successfully cleared", Toast.LENGTH_LONG).show()
