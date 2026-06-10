@@ -29,12 +29,15 @@ class MainActivity : ComponentActivity() {
     private var feedbackList = mutableListOf<String>()
     private var requirements = 4
     private var quantityStart = 6
-    private var
     private var total = Array(7) {""}
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+
+
         showWelcomeScreen()
     }
 
@@ -103,8 +106,12 @@ class MainActivity : ComponentActivity() {
                 display += "${items[i]}\n"
                 display += "Category: ${categories[i]}\n"
                 display += "Quantity: ${quantities[i]}\n"
-                display += "Comments: ${comments}"
+                display += "Comments: ${comments[i]}\n"
             }
+
+        }
+
+        btnBack.setOnClickListener {
 
         }
 
