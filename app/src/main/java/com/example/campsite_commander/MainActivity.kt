@@ -2,6 +2,7 @@ package com.example.campsite_commander
 
 import android.os.Bundle
 import android.telephony.ims.SipDetails
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -62,25 +63,21 @@ class MainActivity : ComponentActivity() {
         txtDetails = findViewById(R.id.txtDetails)
         txtTotalItem = findViewById(R.id.txtTotalItem)
 
-        editItem = findViewById()
-        editCategory = findViewById()
-        editQuantity = findViewById()
+        editItem = findViewById(R.id.editItem)
+        editCategory = findViewById(R.id.editCategory)
+        editQuantity = findViewById(R.id.editQuantity)
 
-        spinnerItems = findViewById()
+        spinnerItems = findViewById(R.id.spinnerItems)
 
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
 
+        spinnerItems.adapter = adapter
 
         //start button of the app to go to the next screen
         val startButton = findViewById<Button>(R.id.btnStart)
         //the exit splash button is to exit the app completely at the start of the program
         val exitSplashButton = findViewById<Button>(R.id.btnExitSplash)
 
-
-        showWelcomeScreen()
-    }
-
-    //function for the splash screen of the application
-    private fun showWelcomeScreen() {
         startButton.setOnClickListener {
             feedbackList.clear()
             showMainScreen()
@@ -90,6 +87,9 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+
+
+    }
     //function for the main screen of the application
     private fun showMainScreen() {
         setContentView(R.layout.main_screen)
