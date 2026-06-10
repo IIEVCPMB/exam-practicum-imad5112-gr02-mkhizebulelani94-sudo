@@ -84,11 +84,9 @@ class MainActivity : ComponentActivity() {
         //variable declarations of the buttons on the main screen
         val btnAdd = findViewById<Button>(R.id.btnAdd_Gear)
         val btnDisplay = findViewById<Button>(R.id.btnDisplay_items)
-        val btnNext = findViewById<Button>(R.id.btnNext_screen
+        val btnNext = findViewById<Button>(R.id.btnNext_screen)
         val btnBack = findViewById<Button>(R.id.btnBack_to_main)
-        //for the last screen detailed view
-        val fullDetails = findViewById<TextView>(R.id.txtDetails)
-        //variable declarations of the editTexts and textViews of the app
+
         val feedbackText = findViewById<TextView>(R.id.txtResponse)
         val earlyDetails = findViewById<TextView>(R.id.txtEarly_Details)
 
@@ -102,9 +100,21 @@ class MainActivity : ComponentActivity() {
         btnAdd.setOnClickListener {
             if (editItem.text.isEmpty() || editQuantity.text.isEmpty() || editCategory.text.isEmpty()) {
                 Toast.makeText(this, "please fill all fields", Toast.LENGTH_LONG).show()
+            } else {
+
+                val index = spinnerItems.selectedItemPosition
+
+                editItem[index] = editItem.text.toString()
+                editCategory[index] = editCategory.text.toString()
+                editQuantity[index] = editQuantity.text.toString().toInt()
+
+                Toast.makeText(this, "Data is successfully added", Toast.LENGTH_LONG).show()
+
+                editQuantity.text.clear()
+                editCategory.text.clear()
+                editItem.text.clear()
+
             }
-        }else {
-            val index = spinnerItems.selectedItemPosition
         }
 
         btnDisplay.setOnClickListener {
