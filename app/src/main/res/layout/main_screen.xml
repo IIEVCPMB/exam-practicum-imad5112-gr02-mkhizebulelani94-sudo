@@ -24,6 +24,13 @@
             android:textStyle="bold"
             />
 
+        <Spinner
+            android:id="@+id/spinnerItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/white"
+            />
 
         <EditText
             android:id="@+id/editItem"
@@ -116,6 +123,28 @@
             android:textSize="25dp"
             android:text="Details"
             android:textStyle="bold"
+            />
+
+        <Button
+            android:id="@+id/btnTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Total Items"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:background="@android:color/black"
+            />
+
+        <TextView
+            android:id="@+id/txtTotalItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total shown here"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
             />
 
         <Button

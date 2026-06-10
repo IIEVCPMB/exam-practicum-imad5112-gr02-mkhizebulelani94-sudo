@@ -54,6 +54,22 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        splashLayout = findViewById(R.id.splashLayout)
+        mainLayout = findViewById(R.id.mainLayout)
+        detailsLayout = findViewById(R.id.detailsLayout)
+
+        txtDetails = findViewById(R.id.txtDetails)
+        txtTotalItem = findViewById(R.id.txtTotalItem)
+
+        editItem = findViewById()
+        editCategory = findViewById()
+        editQuantity = findViewById()
+
+        spinnerItems = findViewById()
+
+
+
         //start button of the app to go to the next screen
         val startButton = findViewById<Button>(R.id.btnStart)
         //the exit splash button is to exit the app completely at the start of the program
