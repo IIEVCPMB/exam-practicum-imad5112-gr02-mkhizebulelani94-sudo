@@ -36,6 +36,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var editItem: EditText
     private lateinit var editCategory: EditText
     private lateinit var editQuantity: EditText
+    private lateinit var editComments: EditText
 
     private lateinit var spinnerItems: Spinner
 
@@ -51,7 +52,7 @@ class MainActivity : ComponentActivity() {
     private var feedbackList = mutableListOf<String>()
     private var requirements = 4
     private var quantityStart = 6
-    private var total = Array(6) {""}
+    private var total = Array(6) { "" }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,6 +70,7 @@ class MainActivity : ComponentActivity() {
         editItem = findViewById(R.id.editItem)
         editCategory = findViewById(R.id.editCategory)
         editQuantity = findViewById(R.id.editQuantity)
+        editComments = findViewById(R.id.editComments)
 
         spinnerItems = findViewById(R.id.spinnerItems)
 
@@ -97,7 +99,7 @@ class MainActivity : ComponentActivity() {
             finish()
         }
         btnAdd.setOnClickListener {
-            if (editItem.text.isEmpty() || editQuantity.text.isEmpty() || editCategory.text.isEmpty()) {
+            if (editItem.text.isEmpty() || editQuantity.text.isEmpty() || editCategory.text.isEmpty() || editComments.text.isEmpty()) {
                 Toast.makeText(this, "please fill all fields", Toast.LENGTH_LONG).show()
             } else {
 
@@ -106,6 +108,7 @@ class MainActivity : ComponentActivity() {
                 editItem[index] = editItem.text.toString()
                 editCategory[index] = editCategory.text.toString()
                 editQuantity[index] = editQuantity.text.toString().toInt()
+                editComments[index] = editComments.text.toString()
 
                 Toast.makeText(this, "Data is successfully added", Toast.LENGTH_LONG).show()
 
@@ -120,11 +123,13 @@ class MainActivity : ComponentActivity() {
 
             var total = 0
 
-            for (i in quantities.indices){
-                total +=quantities[i]
+            for (i in quantities.indices) {
+                total += quantities[i]
             }
 
             val sum = total + quantities.size
+
+            txtTotalItem.text = "Total shown here: $sum"
         }
         //display button
         btnDisplay.setOnClickListener {
@@ -147,10 +152,11 @@ class MainActivity : ComponentActivity() {
         //next button
         btnClear.setOnClickListener {
 
-            for (i in items.indices){
+            for (i in items.indices) {
                 editItem[i] = ""
                 editQuantity[i] = 0
                 editCategory[i] = ""
+                editComments[i] = ""
             }
 
             txtDetails.text = "Response"
@@ -166,13 +172,8 @@ class MainActivity : ComponentActivity() {
         btnExit.setOnClickListener {
             finish()
         }
-
-
     }
-
-
-
-    }
+}
 
 
 
