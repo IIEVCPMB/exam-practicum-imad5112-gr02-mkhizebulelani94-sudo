@@ -23,9 +23,14 @@ class MainActivity : ComponentActivity() {
 
     private val quantities = arrayOf("1", "3", "2", "")
 
+    private val comments = arrayOf("4-person waterproof", "For S'mores (Mega Size)", "Check Batteries", "")
+
 
     private var feedbackList = mutableListOf<String>()
     private var requirements = 4
+    private var quantityStart = 6
+    private var
+    private var total = Array(7) {""}
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,6 +96,15 @@ class MainActivity : ComponentActivity() {
         fullDetails.text = "you have added new things to your inventory"
 
         reviewButton.setOnClickListener {
+            var display = ""
+
+            for (i in items.indices) {
+
+                display += "${items[i]}\n"
+                display += "Category: ${categories[i]}\n"
+                display += "Quantity: ${quantities[i]}\n"
+                display += "Comments: ${comments}"
+            }
 
         }
 

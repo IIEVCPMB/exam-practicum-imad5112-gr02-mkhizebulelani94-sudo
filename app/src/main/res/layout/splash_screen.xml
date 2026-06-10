@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Campsite Commander"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="100dp"
         android:textColor="@color/black"
         android:textSize="34dp"
         android:textStyle="bold"
