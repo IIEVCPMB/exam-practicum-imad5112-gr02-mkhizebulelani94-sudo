@@ -47,13 +47,17 @@ class MainActivity : ComponentActivity() {
     private var feedbackList = mutableListOf<String>()
     private var requirements = 4
     private var quantityStart = 6
-    private var total = Array(7) {""}
+    private var total = Array(6) {""}
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        //start button of the app to go to the next screen
+        val startButton = findViewById<Button>(R.id.btnStart)
+        //the exit splash button is to exit the app completely at the start of the program
+        val exitSplashButton = findViewById<Button>(R.id.btnExitSplash)
 
 
         showWelcomeScreen()
@@ -61,11 +65,6 @@ class MainActivity : ComponentActivity() {
 
     //function for the splash screen of the application
     private fun showWelcomeScreen() {
-        setContentView(R.layout.splash_screen)
-        //start button of the app to go to the next screen
-        val startButton = findViewById<Button>(R.id.btnStart)
-        //the exit splash button is to exit the app completely at the start of the program
-        val exitSplashButton = findViewById<Button>(R.id.btnExitSplash)
         startButton.setOnClickListener {
             feedbackList.clear()
             showMainScreen()
