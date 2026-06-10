@@ -23,7 +23,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.campsite_commander.ui.theme.Campsite_CommanderTheme
 import kotlin.text.get
-
+//ST10516653
+//Bulelani Jeffrey Mkhize
 class MainActivity : ComponentActivity() {
 
     private lateinit var splashLayout: LinearLayout
@@ -37,21 +38,13 @@ class MainActivity : ComponentActivity() {
     private lateinit var editCategory: EditText
     private lateinit var editQuantity: EditText
     private lateinit var editComments: EditText
-
     private lateinit var spinnerItems: Spinner
 
-    private val items = arrayOf("Tent", "Marshmellows", "Flashlight", "")
-
-    private val categories = arrayOf("Shelter", "Food", "Safety", "")
-
-    private val comments = arrayOf("4-person waterproof", "For S'mores (Mega Size)", "Check Batteries", "")
-
-
-    private val feedbackList = mutableListOf<String>()
-    private val requirements = 4
+    private val items = arrayOf("")
+    private val categories = intArrayOf(7)
+    private val comments = intArrayOf(7)
     private val quantityStart = 6
     private val quantities = Array(6) { "" }
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -99,16 +92,20 @@ class MainActivity : ComponentActivity() {
             finish()
         }
         btnAdd.setOnClickListener {
-            if (editItem.text.isEmpty() || editQuantity.text.isEmpty() || editCategory.text.isEmpty() || editComments.text.isEmpty()) {
+            if (editItem.text.isEmpty() ||
+                editQuantity.text.isEmpty() ||
+                editCategory.text.isEmpty() ||
+                editComments.text.isEmpty()
+            ) {
                 Toast.makeText(this, "please fill all fields", Toast.LENGTH_LONG).show()
             } else {
 
                 val index = spinnerItems.selectedItemPosition
 
-                editItem[index] = editItem.text.toString()
-                editCategory[index] = editCategory.text.toString()
-                editQuantity[index] = editQuantity.text.toString().toInt()
-                editComments[index] = editComments.text.toString()
+                items[index] = editItem.text.toString()
+                categories[index] = editCategory.text.toString().toInt()
+                quantities[index] = editQuantity.text.toString()
+                comments[index] = editComments.text.toString().toInt()
 
                 Toast.makeText(this, "Data is successfully added", Toast.LENGTH_LONG).show()
 
@@ -124,7 +121,7 @@ class MainActivity : ComponentActivity() {
 
             var total = 0
 
-            val sum = total + quantities.size
+            val sum = total + quantityStart
 
             txtTotalItem.text = "Total shown here: $sum"
         }
@@ -149,11 +146,11 @@ class MainActivity : ComponentActivity() {
         //next button
         btnClear.setOnClickListener {
 
-            for (i in categories.indices){
-                editComments[i] = ""
-                editItem[i] = ""
-                editCategory[i] = ""
-                editQuantity[i] = 0
+            for (i in categories.indices) {
+                items[i] = ""
+                categories[i] = 0
+                quantities[i] = ""
+                comments[i] = 0
             }
             txtDetails.text = "Response"
 
