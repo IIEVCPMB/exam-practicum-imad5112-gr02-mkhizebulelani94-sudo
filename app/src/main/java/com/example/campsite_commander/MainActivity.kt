@@ -1,7 +1,12 @@
 package com.example.campsite_commander
 
 import android.os.Bundle
+import android.telephony.ims.SipDetails
 import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.ScrollView
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,6 +21,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.campsite_commander.ui.theme.Campsite_CommanderTheme
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var splashLayout: LinearLayout
+    private lateinit var mainLayout: ScrollView
+    private lateinit var detailsLayout: ScrollView
+
+    private lateinit var txtDetails: TextView
+    private lateinit var txtTotalItem: TextView
+
+    private lateinit var editItem: EditText
+    private lateinit var editCategory: EditText
+    private lateinit var editQuantity: EditText
+
+    private lateinit var spinnerItems: Spinner
 
     private val items = arrayOf("Tent", "Marshmellows", "Flashlight", "")
 
