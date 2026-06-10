@@ -84,14 +84,12 @@ class MainActivity : ComponentActivity() {
         //variable declarations of the buttons on the main screen
         val btnAdd = findViewById<Button>(R.id.btnAdd_Gear)
         val btnDisplay = findViewById<Button>(R.id.btnDisplay_items)
-        val btnNext = findViewById<Button>(R.id.btnNext_screen)
         val btnBack = findViewById<Button>(R.id.btnBack_to_main)
         val btnTotal = findViewById<Button>(R.id.btnTotal)
+        val btnExit = findViewById<Button>(R.id.btnExit)
+        val btnClear = findViewById<Button>(R.id.btnClear)
 
-        val feedbackText = findViewById<TextView>(R.id.txtResponse)
-        val earlyDetails = findViewById<TextView>(R.id.txtEarly_Details)
-
-
+        //the functions of the buttons below
         startButton.setOnClickListener {
             feedbackList.clear()
         }
@@ -117,16 +115,18 @@ class MainActivity : ComponentActivity() {
 
             }
         }
+        //total items button
         btnTotal.setOnClickListener {
+
             var total = 0
 
             for (i in quantities.indices){
                 total +=quantities[i]
             }
+
+            val sum = total + quantities.size
         }
-
-        btn
-
+        //display button
         btnDisplay.setOnClickListener {
             var display = ""
 
@@ -138,14 +138,33 @@ class MainActivity : ComponentActivity() {
                 display += "Comments: ${comments[i]}\n"
             }
 
-        }
-        btnNext.setOnClickListener {
+            txtDetails.text = display
+
+            mainLayout.visibility = View.GONE
+            detailsLayout.visibility = View.VISIBLE
 
         }
+        //next button
+        btnClear.setOnClickListener {
+
+            for (i in items.indices){
+                editItem[i] = ""
+                editQuantity[i] = 0
+                editCategory[i] = ""
+            }
+
+            txtDetails.text = "Response"
+
+            Toast.makeText(this, "Data successfully cleared", Toast.LENGTH_LONG).show()
+        }
+        //back button
         btnBack.setOnClickListener {
             detailsLayout.visibility = View.GONE
             mainLayout.visibility = View.GONE
-
+        }
+        //exit app
+        btnExit.setOnClickListener {
+            finish()
         }
 
 
