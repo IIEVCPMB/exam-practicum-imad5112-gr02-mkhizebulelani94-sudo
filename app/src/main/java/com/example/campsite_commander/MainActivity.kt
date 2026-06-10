@@ -50,6 +50,24 @@ class MainActivity : ComponentActivity() {
 
     //function for the main screen of the application
     private fun showMainScreen(){
+        setContentView(R.layout.main_screen)
+
+        //variable declarations of the buttons on the main screen
+        val btnAdd = findViewById<Button>(R.id.btnAdd_Gear)
+        val btnDisplay = findViewById<Button>(R.id.btnDisplay_items)
+        val btnNext = findViewById<Button>(R.id.btnNext_screen)
+
+        btnAdd.setOnClickListener {
+
+        }
+
+        btnDisplay.setOnClickListener {
+
+        }
+
+        btnNext.setOnClickListener {
+
+        }
 
     }
 }
