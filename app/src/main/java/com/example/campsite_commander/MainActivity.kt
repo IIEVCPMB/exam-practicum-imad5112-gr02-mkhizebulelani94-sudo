@@ -78,6 +78,22 @@ class MainActivity : ComponentActivity() {
         //the exit splash button is to exit the app completely at the start of the program
         val exitSplashButton = findViewById<Button>(R.id.btnExitSplash)
 
+        //variable declarations of the buttons on the main screen
+        val btnAdd = findViewById<Button>(R.id.btnAdd_Gear)
+        val btnDisplay = findViewById<Button>(R.id.btnDisplay_items)
+        val btnNext = findViewById<Button>(R.id.btnNext_screen
+            //buttons of the last screen
+        val reviewButton = findViewById<Button>(R.id.btnDetails)
+        val btnBack = findViewById<Button>(R.id.btnBack_to_main)
+
+
+        //variable declarations of the editTexts and textViews of the app
+        val feedbackText = findViewById<TextView>(R.id.txtResponse)
+        val earlyDetails = findViewById<TextView>(R.id.txtEarly_Details)
+
+
+
+
         startButton.setOnClickListener {
             feedbackList.clear()
             showMainScreen()
@@ -90,36 +106,7 @@ class MainActivity : ComponentActivity() {
 
 
     }
-    //function for the main screen of the application
-    private fun showMainScreen() {
-        setContentView(R.layout.main_screen)
 
-        //variable declarations of the buttons on the main screen
-        val btnAdd = findViewById<Button>(R.id.btnAdd_Gear)
-        val btnDisplay = findViewById<Button>(R.id.btnDisplay_items)
-        val btnNext = findViewById<Button>(R.id.btnNext_screen)
-
-        //variable declarations of the editTexts and textViews of the app
-        val feedbackText = findViewById<TextView>(R.id.txtResponse)
-        val earlyDetails = findViewById<TextView>(R.id.txtEarly_Details)
-
-        btnAdd.setOnClickListener {
-
-        }
-
-        btnDisplay.setOnClickListener {
-
-        }
-
-        btnNext.setOnClickListener {
-            requirements++
-            if (requirements < items.size || requirements < quantities.size || requirements < categories.size) {
-                showMainScreen()
-            } else {
-                showDetailsScreen()
-            }
-        }
-    }
     //function for the details screen of the application
     private fun showDetailsScreen(){
         //linking the details screen to the function
