@@ -86,6 +86,7 @@ class MainActivity : ComponentActivity() {
         val btnDisplay = findViewById<Button>(R.id.btnDisplay_items)
         val btnNext = findViewById<Button>(R.id.btnNext_screen)
         val btnBack = findViewById<Button>(R.id.btnBack_to_main)
+        val btnTotal = findViewById<Button>(R.id.btnTotal)
 
         val feedbackText = findViewById<TextView>(R.id.txtResponse)
         val earlyDetails = findViewById<TextView>(R.id.txtEarly_Details)
@@ -116,6 +117,15 @@ class MainActivity : ComponentActivity() {
 
             }
         }
+        btnTotal.setOnClickListener {
+            var total = 0
+
+            for (i in quantities.indices){
+                total +=quantities[i]
+            }
+        }
+
+        btn
 
         btnDisplay.setOnClickListener {
             var display = ""
