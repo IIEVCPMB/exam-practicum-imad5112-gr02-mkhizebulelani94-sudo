@@ -79,6 +79,24 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+    //function for the details screen of the application
+    private fun showDetailsScreen(){
+        //linking the details screen to the function
+        setContentView(R.layout.detailed_view_screen)
+        //declarations for the details screen
+        val fullDetails = findViewById<TextView>(R.id.txtDetails)
+        val reviewButton = findViewById<Button>(R.id.btnDetails)
+        val btnBack = findViewById<Button>(R.id.btnBack_to_main)
+
+        fullDetails.text = "you have added new things to your inventory"
+
+        reviewButton.setOnClickListener {
+
+        }
+
+
+
+    }
 
 
 }

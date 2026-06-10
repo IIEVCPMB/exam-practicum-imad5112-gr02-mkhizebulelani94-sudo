@@ -23,6 +23,19 @@
             android:textStyle="bold"
             android:textSize="30dp" />
 
+        <!-- Showing a full detailed view of the inputs -->
+
+        <Button
+            android:id="@+id/btnDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show All"
+            android:layout_marginTop="35dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+
         <!-- Details Output -->
 
         <TextView
@@ -41,17 +54,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Back to Base"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="80dp"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
             />
-
-
-
-
-
-
 
 
     </LinearLayout>
