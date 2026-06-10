@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.campsite_commander.ui.theme.Campsite_CommanderTheme
+import kotlin.text.get
 
 class MainActivity : ComponentActivity() {
 
@@ -83,10 +84,10 @@ class MainActivity : ComponentActivity() {
         val btnDisplay = findViewById<Button>(R.id.btnDisplay_items)
         val btnNext = findViewById<Button>(R.id.btnNext_screen
             //buttons of the last screen
-        val reviewButton = findViewById<Button>(R.id.btnDetails)
+        val reviewButton = find
         val btnBack = findViewById<Button>(R.id.btnBack_to_main)
-
-
+        //for the last screen detailed view
+        val fullDetails = findViewById<TextView>(R.id.txtDetails)
         //variable declarations of the editTexts and textViews of the app
         val feedbackText = findViewById<TextView>(R.id.txtResponse)
         val earlyDetails = findViewById<TextView>(R.id.txtEarly_Details)
@@ -96,11 +97,23 @@ class MainActivity : ComponentActivity() {
 
         startButton.setOnClickListener {
             feedbackList.clear()
-            showMainScreen()
         }
         exitSplashButton.setOnClickListener {
             finish()
         }
+        reviewButton.setOnClickListener {
+            var display = ""
+
+            for (i in items.indices) {
+
+                display += "${items[i]}\n"
+                display += "Category: ${categories[i]}\n"
+                display += "Quantity: ${quantities[i]}\n"
+                display += "Comments: ${comments[i]}\n"
+            }
+
+        }
+
     }
 
 
