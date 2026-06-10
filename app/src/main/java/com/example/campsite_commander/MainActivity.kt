@@ -2,6 +2,7 @@ package com.example.campsite_commander
 
 import android.os.Bundle
 import android.telephony.ims.SipDetails
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -9,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -83,8 +85,6 @@ class MainActivity : ComponentActivity() {
         val btnAdd = findViewById<Button>(R.id.btnAdd_Gear)
         val btnDisplay = findViewById<Button>(R.id.btnDisplay_items)
         val btnNext = findViewById<Button>(R.id.btnNext_screen
-            //buttons of the last screen
-        val reviewButton = find
         val btnBack = findViewById<Button>(R.id.btnBack_to_main)
         //for the last screen detailed view
         val fullDetails = findViewById<TextView>(R.id.txtDetails)
@@ -93,15 +93,21 @@ class MainActivity : ComponentActivity() {
         val earlyDetails = findViewById<TextView>(R.id.txtEarly_Details)
 
 
-
-
         startButton.setOnClickListener {
             feedbackList.clear()
         }
         exitSplashButton.setOnClickListener {
             finish()
         }
-        reviewButton.setOnClickListener {
+        btnAdd.setOnClickListener {
+            if (editItem.text.isEmpty() || editQuantity.text.isEmpty() || editCategory.text.isEmpty()) {
+                Toast.makeText(this, "please fill all fields", Toast.LENGTH_LONG).show()
+            }
+        }else {
+            val index = spinnerItems.selectedItemPosition
+        }
+
+        btnDisplay.setOnClickListener {
             var display = ""
 
             for (i in items.indices) {
@@ -113,45 +119,24 @@ class MainActivity : ComponentActivity() {
             }
 
         }
-
-    }
-
-
-
-    }
-
-    //function for the details screen of the application
-    private fun showDetailsScreen(){
-        //linking the details screen to the function
-        setContentView(R.layout.detailed_view_screen)
-        //declarations for the details screen
-        val fullDetails = findViewById<TextView>(R.id.txtDetails)
-        val reviewButton = findViewById<Button>(R.id.btnDetails)
-        val btnBack = findViewById<Button>(R.id.btnBack_to_main)
-
-        fullDetails.text = "you have added new things to your inventory"
-
-        reviewButton.setOnClickListener {
-            var display = ""
-
-            for (i in items.indices) {
-
-                display += "${items[i]}\n"
-                display += "Category: ${categories[i]}\n"
-                display += "Quantity: ${quantities[i]}\n"
-                display += "Comments: ${comments[i]}\n"
-            }
+        btnNext.setOnClickListener {
 
         }
-
         btnBack.setOnClickListener {
+            detailsLayout.visibility = View.GONE
+            mainLayout.visibility = View.GONE
 
         }
+
+
+    }
 
 
 
     }
 
 
-}
+
+
+
 
